@@ -1,0 +1,158 @@
+    1  curl ifconfig.me
+    2  0619c17d68704d52a63377a66dc7e7e1
+    3  sudo lsof -i -P -n | grep LISTEN
+    4  sudo apt install maven
+    5  mvn -version
+    6  ls
+    7  cd mindtree/
+    8  ls
+    9  cd Devops_301/
+   10  ls
+   11  cd Jenkins/
+   12  ls
+   13  git push origin master ; git commit -m "Jenkins"
+   14  git config --globale user.email "roohinazk25@gmail.com"
+   15  git config --global user.email "roohinazk25@gmail.com"
+   16  git push origin master ; git commit -m "Jenkins"
+   17  git config --global user.name "RoohinazK"
+   18  git push origin master ; git commit -m "Jenkins"
+   19  git add .
+   20  git git remote add origin https://github.com/RoohinazK/Sample.git
+   21  git remote add origin https://github.com/RoohinazK/Sample.git
+   22  git push -u origin master
+   23  git push 
+   24  ls
+   25  git push origin master
+   26  git commit -m "initial commit"
+   27  git push origin master
+   28  history> jenkins-history.txt
+   29  vi jenkins-history.txt 
+   30  git commit -m "History"
+   31  git push origin master
+   32  ls
+   33  cd ..
+   34  mkdir Docker
+   35  ls
+   36  cd Docker/
+   37  bash dockerinstallation.sh 
+   38  docker ps
+   39  sudo apt install docker.io
+   40  ls
+   41  docker ps
+   42  docker ps -a
+   43  docker version
+   44  sudo chmod 666 /var/run/docker.sock
+   45  docker ps
+   46  docker ps -a
+   47  sudo run hello-world
+   48  docker run hello-world
+   49  ls
+   50  docker ps
+   51  docker ps -a
+   52  sudo lsof -i -P -n | grep LISTEN
+   53  docker run -d -p 5106:5106 291
+   54  docker run -d -p 5106:5106 134
+   55  docker images
+   56  docker run -d -p 5106:5106 bf7
+   57  docker ps
+   58  docker ps -a
+   59  docker restart ea9
+   60  docker ps -a
+   61  cd ..
+   62  ls
+   63  cd Jenkins/
+   64  ls
+   65  cd .
+   66  cd ..
+   67  cd 
+   68  git clone https://github.com/RoohinazK/capdemo.git
+   69  ls
+   70  cd mindtree/
+   71  ls
+   72  sudo rm mindtree
+   73  sudo rm mindtree -rf
+   74  ls
+   75  cd
+   76  ls
+   77  sudo rm -rf mindtree
+   78  ls
+   79  cd capdemo/
+   80  ls
+   81  cd capstoneproject/
+   82  ls
+   83  mvn clean
+   84  ls
+   85  vi Dockerfile 
+   86  cd
+   87  git clone https://github.com/SaiCharanUppari/capdemo.git
+   88  ls
+   89  rm -r capdemo/
+   90  rm -rf capdemo/
+   91  ls
+   92  git clone https://github.com/SaiCharanUppari/capdemo.git
+   93  ls
+   94  git clone https://github.com/RoohinazK/Demo.git
+   95  ls
+   96  cd Demo/
+   97  ls
+   98  cp -rf ../capdemo/capstoneproject/* .
+   99  ls
+  100  git status
+  101  git  add .
+  102  git commit -m "copying code"
+  103  git push 
+  104  ls
+  105  vi Dockerfile 
+  106  vi jenkinsfile
+  107  git status
+  108  git add .
+  109  git commit -m "Addded Jenkins file"
+  110  git push
+  111  ls
+  112  git ls-remote -h https://github.com/RoohinazK/Demo.git HEAD
+  113  cd
+  114  git ls-remote -h https://github.com/RoohinazK/Demo.git
+  115  git ls-remote -h https://github.com/RoohinazK/Demo.git HEAD
+  116  ls
+  117  vim dockercompose.yaml
+  118  docker-compose -f dockercompose.yaml up -d
+  119  sudo apt-get install docker-compose
+  120  docker-compose -f dockercompose.yaml up -d
+  121  vim dockercompose.yaml
+  122  docker-compose -f dockercompose.yaml up -d
+  123  vim dockercompose.yaml
+  124  docker-compose -f dockercompose.yaml up -d
+  125  docker ps
+  126  docker ps -a
+  127  docker ps
+  128  docker rm -f 8580ac20cbc2   
+  129  vim dockercompose.yaml
+  130  docker-compose -f dockercompose.yaml up -d
+  131  docker ps
+  132  docker rm -f 1c4219d6093f        
+  133  docker run --name jfrog -d -p 3060:8081 docker.bintray.io/jfrog/artifactory-oss:6.17.0
+  134  docker ps
+  135  docker run -d --name sonarqube -p 9000:9000 sonarqube
+  136  ls
+  137  cd capdemo/
+  138  ls
+  139  cd
+  140  cd .jenkins/workspace/
+  141  ls
+  142  cd basic-pipeline
+  143  ls
+  144  cd
+  145  docker ps
+  146  ls
+  147  git status
+  148  cd capdemo/
+  149  ls
+  150  cd capstoneproject/
+  151  ls
+  152  cd
+  153  cd Demo/
+  154  ls
+  155  git status
+  156  git pull
+  157  git status
+  158  history> demo.txt
