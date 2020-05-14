@@ -1,9 +1,9 @@
 variable "key_name" {
-  default = "meghanamumbai"
+  default = "nvkey"
 }
 
 variable "pvt_key" {
-  default = "/root/.ssh/mkey.pem"
+  default = "/root/.ssh/nvkey.pem"
 }
 
 variable "us-east-zones" {
@@ -11,5 +11,5 @@ variable "us-east-zones" {
 }
 
 variable "sg-id" {
-  default = "sg-0eb024eb164eb86c0"
+  default = "sg-0c9c83c3b45cd9ebd"
 }
