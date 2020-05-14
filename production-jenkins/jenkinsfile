@@ -1,0 +1,57 @@
+node {
+  stage('Git-Checkout') {
+   git 'https://github.com/SaiCharanUppari/Demo.git'
+  }
+
+  stage('Maven-Clean') {
+   sh label: '', script: 'mvn clean'
+  }
+    
+ stage('Maven-Compile') {
+   sh label: '', script: 'mvn compile'
+  }
+  
+   stage('Maven-Test') {
+   sh label: '', script: 'mvn test'
+  }
+  stage('Sonar Analysis') {
+   withSonarQubeEnv('Sonar') {
+        sh "mvn sonar:sonar"
+    }
+  }
+   stage('Maven-Package') {
+   sh label: '', script: 'mvn package'
+  }
+  stage('Jfrog Artifacory Upload') {
+        def server= Artifactory.server 'Artifactory'
+                    def uploadSpec= """{
+                        "files": [{
+                        "pattern": "target/*.war",
+                        "target": "mavenrepo"}]
+                    }"""
+        server.upload(uploadSpec)
+        
+        }
+        
+        stage("Remove Package") {
+        sh "rm -rf target/"
+        }
+        
+        
+          stage('Download package from JFrog') {
+            def server= Artifactory.server 'Artifactory'
+            def downloadSpec = """{
+            "files": [
+            {
+                "pattern": "mavenrepo/capstoneproject-0.0.1-SNAPSHOT.war",
+                "target": "./capstoneproject.war"
+            }
+            ]
+            }"""
+        server.download(downloadSpec)
+    }
+       
+ stage('Docker-Stage-Deployment') {
+   sh label: '', script: 'docker-compose up -d --build'
+  }
+}
