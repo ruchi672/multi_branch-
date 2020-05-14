@@ -27,7 +27,7 @@ node {
     stage('Deployment into production'){
  	 //	sh label: 'ansible', script: 'sudo ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml'
 	
-	ansiblePlaybook become: true, credentialsId: 'aws-ssh', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yml'
+		ansiblePlaybook become: true, credentialsId: 'aws-ssh-nvkey', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml'
 
      }	   
 
