@@ -1,44 +1,10 @@
 node {
   stage('Git-Checkout') {
-   git 'https://github.com/SaiCharanUppari/Demo.git'
+	git branch: 'test-server', url: 'https://github.com/ruchi672/multi_branch-.git'
   }
 
-  stage('Maven-Clean') {
-   sh label: '', script: 'mvn clean'
-  }
-    
- stage('Maven-Compile') {
-   sh label: '', script: 'mvn compile'
-  }
-  
-   stage('Maven-Test') {
-   sh label: '', script: 'mvn test'
-  }
-  stage('Sonar Analysis') {
-   withSonarQubeEnv('Sonar') {
-        sh "mvn sonar:sonar"
-    }
-  }
-   stage('Maven-Package') {
-   sh label: '', script: 'mvn package'
-  }
-  stage('Jfrog Artifacory Upload') {
-        def server= Artifactory.server 'Artifactory'
-                    def uploadSpec= """{
-                        "files": [{
-                        "pattern": "target/*.war",
-                        "target": "mavenrepo"}]
-                    }"""
-        server.upload(uploadSpec)
-        
-        }
-        
-        stage("Remove Package") {
-        sh "rm -rf target/"
-        }
-        
-        
-          stage('Download package from JFrog') {
+              
+  stage('Download package from JFrog') {
             def server= Artifactory.server 'Artifactory'
             def downloadSpec = """{
             "files": [

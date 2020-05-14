@@ -1,44 +1,17 @@
 node {
-  stage('Git-Checkout') {
-   git 'https://github.com/SaiCharanUppari/Demo.git'
-  }
+     
+  	stage('Git-Checkout') {
+ 		git branch: production', url: 'https://github.com/ruchi672/multi_branch-.git'  
+  	}
 
-  stage('Maven-Clean') {
-   sh label: '', script: 'mvn clean'
-  }
-    
- stage('Maven-Compile') {
-   sh label: '', script: 'mvn compile'
-  }
-  
-   stage('Maven-Test') {
-   sh label: '', script: 'mvn test'
-  }
-  stage('Sonar Analysis') {
-   withSonarQubeEnv('Sonar') {
-        sh "mvn sonar:sonar"
-    }
-  }
-   stage('Maven-Package') {
-   sh label: '', script: 'mvn package'
-  }
-  stage('Jfrog Artifacory Upload') {
-        def server= Artifactory.server 'Artifactory'
-                    def uploadSpec= """{
-                        "files": [{
-                        "pattern": "target/*.war",
-                        "target": "mavenrepo"}]
-                    }"""
-        server.upload(uploadSpec)
-        
-        }
-        
-        stage("Remove Package") {
-        sh "rm -rf target/"
-        }
-        
-        
-          stage('Download package from JFrog') {
+
+
+	stage('AWS - Production Server Provisioning'){
+	   sh label: 'terraform', script: 'sudo /root/bin/terraform  init'
+	   sh label: 'terraform', script: 'sudo /root/bin/terraform  apply -input=false -auto-approve'
+	   }
+
+	stage('Download package from JFrog') {
             def server= Artifactory.server 'Artifactory'
             def downloadSpec = """{
             "files": [
@@ -50,8 +23,17 @@ node {
             }"""
         server.download(downloadSpec)
     }
-       
- stage('Docker-Stage-Deployment') {
-   sh label: '', script: 'docker-compose up -d --build'
-  }
+    
+    stage('Deployment into production'){
+ 	 //	sh label: 'ansible', script: 'sudo ansible-playbook -i inventory -u ubuntu --key /root/.ssh/mkey.pem ./web-playbook.yaml'
+	
+	ansiblePlaybook become: true, credentialsId: 'aws-ssh', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yml'
+
+     }	   
+
+   
+
+
 }
+
+

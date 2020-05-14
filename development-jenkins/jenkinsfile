@@ -1,6 +1,6 @@
 node {
   stage('Git-Checkout') {
-   git 'https://github.com/SaiCharanUppari/Demo.git'
+   git branch: 'development', url: 'https://github.com/ruchi672/multi_branch-.git'
   }
 
   stage('Maven-Clean') {
@@ -36,22 +36,5 @@ node {
         stage("Remove Package") {
         sh "rm -rf target/"
         }
-        
-        
-          stage('Download package from JFrog') {
-            def server= Artifactory.server 'Artifactory'
-            def downloadSpec = """{
-            "files": [
-            {
-                "pattern": "mavenrepo/capstoneproject-0.0.1-SNAPSHOT.war",
-                "target": "./capstoneproject.war"
-            }
-            ]
-            }"""
-        server.download(downloadSpec)
-    }
-       
- stage('Docker-Stage-Deployment') {
-   sh label: '', script: 'docker-compose up -d --build'
-  }
+           
 }
