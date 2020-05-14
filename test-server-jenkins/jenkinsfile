@@ -5,7 +5,7 @@ node {
 
               
   stage('Download package from JFrog') {
-            def server= Artifactory.server 'Artifactory'
+            def server= Artifactory.server 'artifactory'
             def downloadSpec = """{
             "files": [
             {
