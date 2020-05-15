@@ -29,8 +29,10 @@ node {
 	
 	//ansiblePlaybook become: true, credentialsId: 'aws-ssh-nvkey', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml'ansiblePlaybook become: true, becomeUser: 'ubuntu', credentialsId: 'aws-ssh-nvkey', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml'
         
-	ansiblePlaybook become: true, becomeUser: 'ubuntu', credentialsId: 'aws-ssh-nvkey', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml'
-     }  
+	ansiblePlaybook become: true, credentialsId: 'aws-ssh-nvkey', disableHostKeyChecking: true, inventory: 'inventory', playbook: 'web-playbook.yaml'
+      
+       
+}  
 
 
 }
